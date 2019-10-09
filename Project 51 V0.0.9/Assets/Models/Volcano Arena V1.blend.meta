@@ -1,0 +1,193 @@
+fileFormatVersion: 2
+guid: 37810c62377bf22439acc913f765c01a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Plane
+    100002: //RootNode
+    100004: Walls
+    100006: Floor-Volcano
+    100008: Baby_Volcano
+    100010: Rock
+    100012: Rock_2
+    100014: Rock_3
+    100016: Rock_4
+    100018: Rock_5
+    100020: Volcano
+    100022: Floor-Volcano-Lava-Top
+    100024: Floor-Volcano-Lava-Top_001
+    100026: Volcano-LavaFall-Top
+    100028: Volcano-LavaLake-Top
+    100030: Volcamno-Lava-Top
+    100032: Volcamno-LavaFall-Top
+    100034: Volcamno-LavaLake-Top
+    100036: Volcamno-LavaTop-Top
+    400000: Plane
+    400002: //RootNode
+    400004: Walls
+    400006: Floor-Volcano
+    400008: Baby_Volcano
+    400010: Rock
+    400012: Rock_2
+    400014: Rock_3
+    400016: Rock_4
+    400018: Rock_5
+    400020: Volcano
+    400022: Floor-Volcano-Lava-Top
+    400024: Floor-Volcano-Lava-Top_001
+    400026: Volcano-LavaFall-Top
+    400028: Volcano-LavaLake-Top
+    400030: Volcamno-Lava-Top
+    400032: Volcamno-LavaFall-Top
+    400034: Volcamno-LavaLake-Top
+    400036: Volcamno-LavaTop-Top
+    2100000: unnamed
+    2100002: Ground
+    2100004: Lava
+    2100006: Ground__rock_jpg
+    2100008: Lava__Lava_Texture_png
+    2100010: Rock__rock_jpg
+    2100012: None__Lava_Texture_png
+    2300000: Plane
+    2300002: Walls
+    2300004: Floor-Volcano
+    2300006: Baby_Volcano
+    2300008: Rock
+    2300010: Rock_2
+    2300012: Rock_3
+    2300014: Rock_4
+    2300016: Rock_5
+    2300018: Volcano
+    2300020: Floor-Volcano-Lava-Top
+    2300022: Floor-Volcano-Lava-Top_001
+    2300024: Volcano-LavaFall-Top
+    2300026: Volcano-LavaLake-Top
+    2300028: Volcamno-Lava-Top
+    2300030: Volcamno-LavaFall-Top
+    2300032: Volcamno-LavaLake-Top
+    2300034: Volcamno-LavaTop-Top
+    3300000: Plane
+    3300002: Walls
+    3300004: Floor-Volcano
+    3300006: Baby_Volcano
+    3300008: Rock
+    3300010: Rock_2
+    3300012: Rock_3
+    3300014: Rock_4
+    3300016: Rock_5
+    3300018: Volcano
+    3300020: Floor-Volcano-Lava-Top
+    3300022: Floor-Volcano-Lava-Top_001
+    3300024: Volcano-LavaFall-Top
+    3300026: Volcano-LavaLake-Top
+    3300028: Volcamno-Lava-Top
+    3300030: Volcamno-LavaFall-Top
+    3300032: Volcamno-LavaLake-Top
+    3300034: Volcamno-LavaTop-Top
+    4300000: Plane
+    4300002: Walls
+    4300004: Floor-Volcano
+    4300006: Baby_Volcano
+    4300008: Volcano
+    4300010: Rock_2
+    4300012: Rock_3
+    4300014: Rock_4
+    4300016: Rock
+    4300018: Rock_5
+    4300020: Floor-Volcano-Lava-Top
+    4300022: Floor-Volcano-Lava-Top_001
+    4300024: Volcano-LavaFall-Top
+    4300026: Volcano-LavaLake-Top
+    4300028: Volcamno-Lava-Top
+    4300030: Volcamno-LavaTop-Top
+    4300032: Volcamno-LavaFall-Top
+    4300034: Volcamno-LavaLake-Top
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 3
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
