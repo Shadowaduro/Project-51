@@ -14,43 +14,53 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: inputH
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: inputV
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Dash
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Shoot
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Reload
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
     m_Controller: {fileID: 0}
+=======
+    m_Controller: {fileID: 9100000}
+  - m_Name: Melee
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -64,6 +74,33 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+=======
+  - serializedVersion: 5
+    m_Name: Arms
+    m_StateMachine: {fileID: 1107202586729567940}
+    m_Mask: {fileID: 31900000, guid: 306429868f7b28546ab923241772d8d2, type: 2}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: 'Reload '
+    m_StateMachine: {fileID: 1107224115557831404}
+    m_Mask: {fileID: 31900000, guid: 306429868f7b28546ab923241772d8d2, type: 2}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 --- !u!206 &206804979472876550
 BlendTree:
   m_ObjectHideFlags: 1
@@ -361,6 +398,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 --- !u!1101 &1101219899869010434
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -387,6 +425,9 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101230216201347082
+=======
+--- !u!1101 &1101243580329356664
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,7 +680,11 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 --- !u!1101 &1101456577438712296
+=======
+--- !u!1101 &1101477644074804692
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -648,7 +693,11 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   m_DstState: {fileID: 1102806547959834734}
+=======
+  m_DstState: {fileID: 1102820318172700156}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -706,6 +755,31 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.99
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &1101614463914442920
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Reload
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102570182781063890}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -858,6 +932,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 --- !u!1101 &1101741170179298990
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -881,6 +956,9 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101765261999869080
+=======
+--- !u!1101 &1101681690849451052
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1166,8 +1244,13 @@ AnimatorState:
   m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   - {fileID: 1101741170179298990}
   - {fileID: 1101765261999869080}
+=======
+  - {fileID: 1101567260348499476}
+  - {fileID: 1101657180750939960}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1222,9 +1305,14 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   - {fileID: 1101306392021950660}
   - {fileID: 1101622963204795398}
   - {fileID: 1101023387176025236}
+=======
+  - {fileID: 1101243580329356664}
+  - {fileID: 1101681690849451052}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1235,6 +1323,33 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 206804979472876550}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102570182781063890
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Reload
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1101477644074804692}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 388e779ec247d314cb6e5aadc6d2508c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1272,6 +1387,8 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &1102806547959834734
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+=======
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -1287,8 +1404,6 @@ AnimatorState:
   - {fileID: 1101230216201347082}
   - {fileID: 1101314886514065146}
   - {fileID: 1101049305180870884}
-  - {fileID: 1101126078884663922}
-  - {fileID: 1101086810857050928}
   - {fileID: 1101433381317419342}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -1300,6 +1415,45 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: fe16337538ceac24387406f2e6c72ecd, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102820318172700156
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+  - {fileID: 1101649324733999600}
+  - {fileID: 1101955631129243602}
+  - {fileID: 1101230216201347082}
+  - {fileID: 1101314886514065146}
+  - {fileID: 1101049305180870884}
+  - {fileID: 1101126078884663922}
+  - {fileID: 1101086810857050928}
+  - {fileID: 1101433381317419342}
+=======
+  - {fileID: 1101614463914442920}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1333,6 +1487,90 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
+=======
+--- !u!1102 &1102978558695357356
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shoot
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1101432427883717668}
+  - {fileID: 1101445452206677384}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 4e5ee56a556875647b6f9ce08e8bd0dc, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1107 &1107202586729567940
+AnimatorStateMachine:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Arms
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 1102362562748043140}
+    m_Position: {x: 324, y: 156, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102978558695357356}
+    m_Position: {x: 156, y: 276, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102128019963525602}
+    m_Position: {x: 468, y: 276, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 348, y: 96, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 1102362562748043140}
+--- !u!1107 &1107224115557831404
+AnimatorStateMachine:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Reload '
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 1102820318172700156}
+    m_Position: {x: 420, y: 132, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102570182781063890}
+    m_Position: {x: 420, y: 288, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 1102820318172700156}
+>>>>>>> Stashed changes:Project 51 V0.0.9/Assets/Animations/Mech/Mech.controller
 --- !u!1107 &1107354712100015474
 AnimatorStateMachine:
   serializedVersion: 5
