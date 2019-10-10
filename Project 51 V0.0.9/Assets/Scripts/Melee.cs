@@ -21,7 +21,7 @@ public class Melee : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && playerUI.pause == false)
         {
-            animator.SetTrigger("Attacking");
+            animator.SetTrigger("Melee");
         }
     }
 
@@ -34,6 +34,8 @@ public class Melee : MonoBehaviour
         else if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+
         }
     }
 }

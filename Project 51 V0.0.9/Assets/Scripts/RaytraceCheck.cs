@@ -27,14 +27,14 @@ public class RaytraceCheck : MonoBehaviour
 
             if (hit.collider.tag == "Enemy")
             {
-                hit.collider.GetComponent<EnemyHealth>().HealthInvisable(true);
+                //hit.collider.GetComponent<EnemyHealth>().HealthIsVisable(true);
 
             }
             if (hit.collider.tag == "")
             {
                 //fix
                 //Need to turn off when player looks away from emeny
-                hit.collider.GetComponent<EnemyHealth>().HealthInvisable(false);
+                //hit.collider.GetComponent<EnemyHealth>().HealthIsVisable(false);
 
             }
         }

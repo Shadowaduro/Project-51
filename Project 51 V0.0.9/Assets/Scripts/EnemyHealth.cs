@@ -62,9 +62,15 @@ public class EnemyHealth : MonoBehaviour
         healthBar.color = full;
         tColor = full;
         currentHealthImage = maxHealth;
-        if (healthTakeSpeed < 10)
+        if (healthTakeSpeed <= 10)
         {
             healthTakeSpeed = healthTakeSpeed * 10;
+        }
+        if (healthBar.enabled == true)
+        {
+            healthBar.enabled = false;
+            healthBarBackground.enabled = false;
+            healthBarBackgroundBorder.enabled = false;
         }
     }
 
@@ -213,21 +219,6 @@ public class EnemyHealth : MonoBehaviour
         ///
     }
 
-    public void HealthInvisable(bool toggle)
-    {
-        healthBar.enabled = toggle;
-        healthBarBackground.enabled = toggle;
-        healthBarBackgroundBorder.enabled = toggle;
-    }
-
-    //public void HealthOff()
-    //{
-    //    healthBar.enabled = false;
-    //    healthBarBackground.enabled = false;
-    //    healthBarBackgroundBorder.enabled = false;
-    //}
-
-
     public void TakeDamage(float damage)
     {
         if (healingTriggered == true)
@@ -247,6 +238,12 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(OnDamage(timeTillDamage));
             //animator.SetTrigger("OnDamage");
             currentHealth -= damage;
+            if (healthBar.enabled == false)
+            {
+                healthBar.enabled = true;
+                healthBarBackground.enabled = true;
+                healthBarBackgroundBorder.enabled = true;
+            }
         }
     }
 
