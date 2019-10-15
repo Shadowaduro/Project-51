@@ -22,6 +22,8 @@ ModelImporter:
     100032: Volcamno-LavaFall-Top
     100034: Volcamno-LavaLake-Top
     100036: Volcamno-LavaTop-Top
+    100038: Volcamno-LavaLake-Bottom
+    100040: Arena-Ground
     400000: Plane
     400002: //RootNode
     400004: Walls
@@ -41,6 +43,8 @@ ModelImporter:
     400032: Volcamno-LavaFall-Top
     400034: Volcamno-LavaLake-Top
     400036: Volcamno-LavaTop-Top
+    400038: Volcamno-LavaLake-Bottom
+    400040: Arena-Ground
     2100000: unnamed
     2100002: Ground
     2100004: Lava
@@ -66,6 +70,8 @@ ModelImporter:
     2300030: Volcamno-LavaFall-Top
     2300032: Volcamno-LavaLake-Top
     2300034: Volcamno-LavaTop-Top
+    2300036: Volcamno-LavaLake-Bottom
+    2300038: Arena-Ground
     3300000: Plane
     3300002: Walls
     3300004: Floor-Volcano
@@ -84,6 +90,8 @@ ModelImporter:
     3300030: Volcamno-LavaFall-Top
     3300032: Volcamno-LavaLake-Top
     3300034: Volcamno-LavaTop-Top
+    3300036: Volcamno-LavaLake-Bottom
+    3300038: Arena-Ground
     4300000: Plane
     4300002: Walls
     4300004: Floor-Volcano
@@ -102,6 +110,8 @@ ModelImporter:
     4300030: Volcamno-LavaTop-Top
     4300032: Volcamno-LavaFall-Top
     4300034: Volcamno-LavaLake-Top
+    4300036: Volcamno-LavaLake-Bottom
+    4300038: Arena-Ground
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

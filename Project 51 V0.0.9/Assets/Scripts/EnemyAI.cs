@@ -5,11 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum EnemyBehaviour { chaseTarget, attackTarget, randomWander, charge, stop }
+    public enum EnemyBehaviour { chaseTarget, attackTarget, charge, stop }
 
-    public EnemyBehaviour currentBehaviour = EnemyBehaviour.randomWander;
+    public EnemyBehaviour currentBehaviour = EnemyBehaviour.chaseTarget;
     public Transform target;
-    public List<Transform> waypoints;
     public bool chasing = false;
     public float enemyDamage = 5f;
     [HideInInspector]
@@ -32,20 +31,8 @@ public class EnemyAI : MonoBehaviour
             distToTarget = Vector3.Distance(transform.position, target.position);
         }
 
-        if (currentBehaviour == EnemyBehaviour.randomWander)
-        {
-            if (target != null)
-            {
-                if (distToTarget >= 2f)
-                {
-                    MoveToTarget(target);
-                }
-                else
-                {
-                    CallBehaviour(EnemyBehaviour.randomWander);
-                }
-            }
-        } else if (currentBehaviour == EnemyBehaviour.chaseTarget)
+       
+        if (currentBehaviour == EnemyBehaviour.chaseTarget)
         {
             if (chasing == true)
             {
@@ -64,14 +51,8 @@ public class EnemyAI : MonoBehaviour
     public virtual void CallBehaviour(EnemyBehaviour behaviour)
     {
         currentBehaviour = behaviour;
-        if (behaviour == EnemyBehaviour.randomWander)
-        {
-            chasing = false;
-            Transform nextWaypoint = waypoints[Random.Range(0, waypoints.Count)];
-            target = nextWaypoint;
-            agent.isStopped = false;
-        }
-        else if (behaviour == EnemyBehaviour.chaseTarget)
+       
+        if (behaviour == EnemyBehaviour.chaseTarget)
         {
             if (chasing == false)
             {
@@ -95,6 +76,7 @@ public class EnemyAI : MonoBehaviour
                         {
                             StartCoroutine(Attack(hit.collider));
                         }
+                        CallBehaviour(EnemyBehaviour.chaseTarget);
                     }
                     else
                     {
@@ -106,10 +88,6 @@ public class EnemyAI : MonoBehaviour
                 {
                     CallBehaviour(EnemyBehaviour.chaseTarget);
                 }
-            }
-            else
-            {
-                CallBehaviour(EnemyBehaviour.randomWander);
             }
         }
     }
