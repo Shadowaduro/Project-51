@@ -20,8 +20,8 @@ public class WaterMovement : MonoBehaviour                                      
         if(flow)
         {
             timePassed += Time.deltaTime;
-            mat.SetTextureOffset("_MainTex", new Vector2(timePassed * flowSpeed,0));
-            mat.SetTextureOffset("_DetailAlbedoMap", new Vector2(timePassed * secondaryFlowSpeed, 0));
+            mat.SetTextureOffset("_MainTex", new Vector2(0, -timePassed * flowSpeed));
+            mat.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, -timePassed * secondaryFlowSpeed));
         }
     }
 }
