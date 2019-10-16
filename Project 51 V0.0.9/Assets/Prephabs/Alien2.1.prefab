@@ -121,7 +121,7 @@ MonoBehaviour:
   currentAmmo: 0
   reloadPercentage: 30
   bulletDelaySeconds: 0.1
-  reloadDelaySeconds: 0.1
+  reloadDone: 1
   muzzleFlash: {fileID: 0}
   impactEffect: {fileID: 0}
   spawnMuzzleFlash: {fileID: 7508975783838723466}
@@ -1438,12 +1438,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc87ba24362b9747bafdaf71e22b340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedClass: 0
   speed: 8
-  speedIncrease: 8
+  sprintSpeed: 8
   jumpSpeed: 8
   gravity: 20
   maxDashDis: 2
-  dashSpeed: 8
+  dashTime: 16
 --- !u!114 &7887247338710831372
 MonoBehaviour:
   m_ObjectHideFlags: 0
