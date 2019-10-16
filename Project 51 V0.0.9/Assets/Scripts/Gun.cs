@@ -75,6 +75,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         BulletDelayTimer();
 
         if (Input.GetButtonDown("Reload") && currentAmmo != magSize && outOfAmmo == false)
@@ -104,6 +105,38 @@ public class Gun : MonoBehaviour
             //Debug.Log("Time till next shot " + bulletDelayTimer);
         }
     }
+
+
+    public void Shoot()
+    {
+        Vector3 gunOrigin = new Vector3(camera.transform.position.x, camera.transform.position.y + raycastOffSetY, camera.transform.position.z);
+        Debug.DrawRay(gunOrigin, camera.transform.forward * gunRange, Color.red);
+        RaycastHit hit;
+
+        if (Physics.Raycast(gunOrigin, camera.transform.forward, out hit, gunRange, ~LayerMask.GetMask("ImpactEffect")))
+        {
+            Ammo();
+            MuzzelFlash();
+            playerAnimator.ShootAnimation();
+            GameObject ImpactEffect = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(ImpactEffect, 0.2f);
+            //Debug.Log(hit.transform.name);
+
+            if (hit.collider.tag == "Enemy")
+            {
+                //Debug.Log("Fired");
+                hit.collider.GetComponent<EnemyHealth>().TakeDamage(gunDamage);
+            }
+        }
+        bulletDelayTimer = 0;
+    }
+
+    public void MuzzelFlash()
+    {
+        GameObject MuzzleFlash = Instantiate(muzzleFlash, spawnMuzzleFlash.position, spawnMuzzleFlash.rotation);
+        Destroy(MuzzleFlash, 0.2f);
+    }
+
     public void Reload()
     {
         //if (reloadTimer == true && reloadDelaySeconds >= reloadDelayTimer)
@@ -132,42 +165,12 @@ public class Gun : MonoBehaviour
             playerUI.UpdateUI();
             reloadDone = false;
         }
-        else
-        {
-            reloadDone = true;
-            Debug.Log("test");
-        }
+        //else
+        //{
+        //    reloadDone = true;
+        //    Debug.Log("test");
         //}
-    }
-
-    public void Shoot()
-    {
-        Vector3 gunOrigin = new Vector3(camera.transform.position.x, camera.transform.position.y + raycastOffSetY, camera.transform.position.z);
-        Debug.DrawRay(gunOrigin, camera.transform.forward * gunRange, Color.red);
-        RaycastHit hit;
-        
-        if (Physics.Raycast(gunOrigin, camera.transform.forward, out hit, gunRange, ~LayerMask.GetMask("ImpactEffect")))
-        {
-            Ammo();
-            MuzzelFlash();
-            playerAnimator.ShootAnimation();
-            GameObject ImpactEffect = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(ImpactEffect, 0.2f);
-            //Debug.Log(hit.transform.name);
-
-            if (hit.collider.tag == "Enemy")
-            {
-                //Debug.Log("Fired");
-                hit.collider.GetComponent<EnemyHealth>().TakeDamage(gunDamage);
-            }
-        }
-        bulletDelayTimer = 0;
-    }
-
-    public void MuzzelFlash()
-    {
-        GameObject MuzzleFlash = Instantiate(muzzleFlash, spawnMuzzleFlash.position, spawnMuzzleFlash.rotation);
-        Destroy(MuzzleFlash, 0.2f);
+        //}
     }
 
     public void Ammo()
@@ -197,4 +200,5 @@ public class Gun : MonoBehaviour
             Debug.Log("shot");
         }
     }
+    
 }

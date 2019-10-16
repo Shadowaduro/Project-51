@@ -34,10 +34,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("----------------------------------------------------------------")]
     [Header("Health % Colors")]
     [Header("----------------------------------------------------------------")]
-    
+
     [Tooltip("Color of the Health between 100-75%")]
     [Space(5)]
-    public Color full = new Color (0.3f, 1f, 0f, 1f);
+    public Color full = new Color(0.3f, 1f, 0f, 1f);
     [Tooltip("Color of the Health at 75-50%")]
     public Color half = new Color(1f, 0.9f, 0f, 1f);
     [Tooltip("Color of the Health at 50-30%")]
@@ -63,9 +63,48 @@ public class PlayerHealth : MonoBehaviour
         //achievement = GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<Achievements>();
         currentHealthImage = maxHealth;
         healthTakeSpeed = healthTakeSpeed * 10;
+        healthBar.fillAmount = currentHealth / maxHealth;
+        healthBarBackground.fillAmount = currentHealthImage / maxHealth;
     }
 
     void Update()
+    {
+        ///
+        /// Can Remove
+        /// vvvvvvvvvv
+
+        if (Input.GetKeyDown(KeyCode.H) && currentHealth < maxHealth)
+        {
+            // Starts healing
+            healthingPressed = true;
+            //sends healing amount to TakeDamage
+            TakeDamage(maxHealth);
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            //sends damage amount to TakeDamage
+            TakeDamage(damage);
+        }
+
+        if (currentHealth == maxHealth && healthBar.color != full)
+        {
+            healthBar.color = Color.Lerp(tColor, full, 0.5f);
+            tColor = healthBar.color;
+
+            Debug.Log("Filling");
+        }
+        else if (currentHealth <= 20)
+        {
+            //                              Red                               White
+            healthBar.color = Color.Lerp(thisTo, that, Mathf.PingPong(Time.time, lowHealthFlickRate));
+        }
+        /// ^^^^^^^^^^
+        /// Can Remove
+        ///
+    }
+
+    IEnumerator HealthUpdate()
     {
         if (currentHealth <= maxHealth)
         {
@@ -155,53 +194,42 @@ public class PlayerHealth : MonoBehaviour
             else if (currentHealth <= 75f && currentHealth > 50f)
             {
                 //                                    Yellow
-                healthBar.color = Color.Lerp(tColor, half, 0.05f);
+                healthBar.color = Color.Lerp(tColor, half, t);
                 tColor = healthBar.color;
                 t = 0;
             }
             else if (currentHealth <= 50f && currentHealth > 30f)
             {
                 //                                    Orange
-                healthBar.color = Color.Lerp(tColor, quarter, 0.05f);
+                healthBar.color = Color.Lerp(tColor, quarter, t);
                 tColor = healthBar.color;
                 t = 0;
             }
             else if (currentHealth <= 30)
             {
                 //                                      Red
-                healthBar.color = Color.Lerp(tColor, thisTo, 0.05f);
+                healthBar.color = Color.Lerp(tColor, thisTo, t);
                 tColor = healthBar.color;
                 t = 0;
             }
         }
+
         
-        if (currentHealth <= 20)
+
+        if (healingAmount == currentHealth && healing == true)
         {
-            //                              Red                               White
-            healthBar.color = Color.Lerp(thisTo, that, Mathf.PingPong(Time.time, lowHealthFlickRate));
+            StopAllCoroutines();
+        }
+        else if (currentHealthImage == currentHealth && healing == false)
+        {
+            StopAllCoroutines();
+        }
+        else
+        {
+            yield return new WaitForEndOfFrame();
+            yield return HealthUpdate();
         }
 
-        ///
-        /// Can Remove
-        /// vvvvvvvvvv
-
-        if (Input.GetKeyDown(KeyCode.H) && currentHealth < maxHealth)
-        {
-            // Starts healing
-            healthingPressed = true;
-            //sends healing amount to TakeDamage
-            TakeDamage(maxHealth);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            //sends damage amount to TakeDamage
-            TakeDamage(damage);
-        }
-
-        /// ^^^^^^^^^^
-        /// Can Remove
-        ///
     }
 
     public void TakeDamage(float damage)
@@ -223,11 +251,8 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(OnDamage(timeTillDamage));
             //animator.SetTrigger("OnDamage");
             currentHealth -= damage;
-
-            //achivements
-            //achievement.totalDamageTaken += damage;
-            //achievement.DamageAchivement();
         }
+        StartCoroutine(HealthUpdate());
     }
 
     IEnumerator OnDamage(float waitTime)

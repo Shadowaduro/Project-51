@@ -10267,6 +10267,11 @@ PrefabInstance:
       propertyPath: healthBarBackground
       value: 
       objectReference: {fileID: 1067330389}
+    - target: {fileID: 4151045534911171069, guid: 6d42e715788d1dc4ba31a8c4dcb84baa,
+        type: 3}
+      propertyPath: full.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1269461643, guid: 6d42e715788d1dc4ba31a8c4dcb84baa, type: 3}
       propertyPath: m_Size.x
       value: 0.17623861

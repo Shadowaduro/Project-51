@@ -46,8 +46,6 @@ public class EnemyHealth : MonoBehaviour
     float healingAmount;
     float t;
     bool damageTaken = false;
-    bool healing = false;
-    bool healingTriggered;
     Color tColor;
     Vector3 spawnLoc;
     Music music;
@@ -76,120 +74,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= maxHealth)
-        {
-            healthBar.fillAmount = currentHealth / maxHealth;
-            healthBarBackground.fillAmount = currentHealthImage / maxHealth;
-
-            if (damageTaken == true)
-            {
-                healing = false;
-                currentHealthImage -= Time.deltaTime * healthTakeSpeed;
-
-                if (currentHealthImage <= currentHealth)
-                {
-                    currentHealthImage = currentHealth;
-                    damageTaken = false;
-                }
-            }
-            else if (healing == true)
-            {
-                currentHealthImage += Time.deltaTime * healthTakeSpeed;
-                currentHealth += Time.deltaTime * healthTakeSpeed;
-
-                if (currentHealth >= healingAmount)
-                {
-                    currentHealth = healingAmount;
-                    currentHealthImage = currentHealth;
-                    healing = false;
-                }
-
-            }
-        }
-
-        if (currentHealth <= 0f)
-        {
-            music.totalKills++;
-            music.currentTime = 0;
-            music.GotKill();
-            Vector3 s = new Vector3(spawnLoc.x, spawnLoc.y, spawnLoc.z);
-            GameObject Enemy = Instantiate(enemy, s, Quaternion.identity);
-            Enemy.name = enemy.name;
-            Destroy(this.gameObject);
-            //healthingPressed  = true;
-            //TakeDamage(maxHealth);
-        }
-        //if (currentHealth <= 0.01f)
-        //{
-        //    currentHealth = 0f;
-        //    currentHealthImage = 0f;
-        //}
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-            currentHealthImage = maxHealth;
-        }
-
-        if (currentHealth > 20f && currentHealth != maxHealth && healing == true || damageTaken == true)
-        {
-            t += Time.deltaTime;
-        }
-
-        if (healing == true)
-        {
-            if (currentHealth >= 75f)
-            {
-                //                                      Green
-                healthBar.color = Color.Lerp(tColor, full, t);
-                tColor = healthBar.color;
-                t = 0;
-            }
-            else if (currentHealth <= 75f && currentHealth > 50f)
-            {
-                //                                    Yellow
-                healthBar.color = Color.Lerp(tColor, half, t);
-                tColor = healthBar.color;
-                t = 0;
-            }
-            else if (currentHealth <= 50f && currentHealth > 25f)
-            {
-                //                                    Orange
-                healthBar.color = Color.Lerp(tColor, quarter, t);
-                tColor = healthBar.color;
-                t = 0;
-            }
-        }
-        else if (damageTaken == true)
-        {
-            if (currentHealth > 75f)
-            {
-                healthBar.color = tColor;
-                tColor = healthBar.color;
-            }
-            else if (currentHealth <= 75f && currentHealth > 50f)
-            {
-                //                                    Yellow
-                healthBar.color = Color.Lerp(tColor, half, 0.05f);
-                tColor = healthBar.color;
-                t = 0;
-            }
-            else if (currentHealth <= 50f && currentHealth > 30f)
-            {
-                //                                    Orange
-                healthBar.color = Color.Lerp(tColor, quarter, 0.05f);
-                tColor = healthBar.color;
-                t = 0;
-            }
-            else if (currentHealth <= 30)
-            {
-                //                                      Red
-                healthBar.color = Color.Lerp(tColor, thisTo, 0.05f);
-                tColor = healthBar.color;
-                t = 0;
-            }
-        }
-
         if (currentHealth <= 20)
         {
             //                              Red                               White
@@ -219,21 +103,99 @@ public class EnemyHealth : MonoBehaviour
         ///
     }
 
-    public void TakeDamage(float damage)
+    IEnumerator HealthUpdate()
     {
-        if (healingTriggered == true)
+        if (currentHealth <= maxHealth)
         {
-            healingAmount = currentHealth + damage;
+            healthBar.fillAmount = currentHealth / maxHealth;
+            healthBarBackground.fillAmount = currentHealthImage / maxHealth;
 
-            if (healingAmount > maxHealth)
+            if (damageTaken == true)
             {
-                healingAmount = maxHealth;
-            }
+                currentHealthImage -= Time.deltaTime * healthTakeSpeed;
 
-            healing = true;
-            healingTriggered = false;
+                if (currentHealthImage <= currentHealth)
+                {
+                    currentHealthImage = currentHealth;
+                    damageTaken = false;
+                }
+            }
         }
-        else if (currentHealth >= 0f)
+
+        if (currentHealth <= 0f)
+        {
+            music.totalKills++;
+            music.currentTime = 0;
+            music.GotKill();
+            Vector3 s = new Vector3(spawnLoc.x, spawnLoc.y, spawnLoc.z);
+            GameObject Enemy = Instantiate(enemy, s, Quaternion.identity);
+            Enemy.name = enemy.name;
+            Destroy(this.gameObject);
+            //healthingPressed  = true;
+            //TakeDamage(maxHealth);
+        }
+        //if (currentHealth <= 0.01f)
+        //{
+        //    currentHealth = 0f;
+        //    currentHealthImage = 0f;
+        //}
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+            currentHealthImage = maxHealth;
+        }
+
+        if (currentHealth > 20f && currentHealth != maxHealth && damageTaken == true)
+        {
+            t += Time.deltaTime;
+        }
+
+        if (damageTaken == true)
+        {
+            if (currentHealth > 75f)
+            {
+                healthBar.color = tColor;
+                tColor = healthBar.color;
+            }
+            else if (currentHealth <= 75f && currentHealth > 50f)
+            {
+                //                                    Yellow
+                healthBar.color = Color.Lerp(tColor, half, 0.05f);
+                tColor = healthBar.color;
+                t = 0;
+            }
+            else if (currentHealth <= 50f && currentHealth > 30f)
+            {
+                //                                    Orange
+                healthBar.color = Color.Lerp(tColor, quarter, 0.05f);
+                tColor = healthBar.color;
+                t = 0;
+            }
+            else if (currentHealth <= 30)
+            {
+                //                                      Red
+                healthBar.color = Color.Lerp(tColor, thisTo, 0.05f);
+                tColor = healthBar.color;
+                t = 0;
+            }
+        }
+
+        if (currentHealthImage == currentHealth)
+        {
+            StopAllCoroutines();
+        }
+        else
+        {
+            yield return new WaitForEndOfFrame();
+            yield return HealthUpdate();
+        }
+    }
+
+
+        public void TakeDamage(float damage)
+    {
+        if (currentHealth >= 0f)
         {
             StartCoroutine(OnDamage(timeTillDamage));
             //animator.SetTrigger("OnDamage");
@@ -245,6 +207,7 @@ public class EnemyHealth : MonoBehaviour
                 healthBarBackgroundBorder.enabled = true;
             }
         }
+        StartCoroutine(HealthUpdate());
     }
 
     IEnumerator OnDamage(float waitTime)
