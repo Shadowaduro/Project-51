@@ -187,10 +187,15 @@ public class PlayerHealth : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H) && currentHealth < maxHealth)
         {
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/PlayerHealth.cs
             // Starts healing
             healthingPressed = true;
             //sends healing amount to TakeDamage
             TakeDamage(maxHealth);
+=======
+            //Debug.Log("sToP");
+            StopCoroutine(HealthUpdate());
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/PlayerHealth.cs
         }
 
         if (Input.GetKeyDown(KeyCode.G))

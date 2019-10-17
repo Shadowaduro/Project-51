@@ -7,14 +7,14 @@ public class Melee : MonoBehaviour
     public float damage;
 
     Animator animator;
-    EnemyHealth enemyHealth;
+    //EnemyHealth enemyHealth;
     PlayerUI playerUI;
 
     void Start()
     {
         animator = GetComponentInParent<Animator>();
         playerUI = GameObject.Find("UI").GetComponent<PlayerUI>();
-        enemyHealth = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>();
+        //enemyHealth = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>();
     }
 
     void Update()

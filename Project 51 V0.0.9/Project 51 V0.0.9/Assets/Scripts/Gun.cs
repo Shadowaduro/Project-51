@@ -21,7 +21,12 @@ public class Gun : MonoBehaviour
 
     [Space(5)]
     public float bulletDelaySeconds = 0.1f;
+    public float chargeUp = 0.1f;
+    public float chargeUpCap = 0.1f;
     float bulletDelayTimer;
+    float maxBulletDelaySeconds;
+    bool delayOver;
+    bool shotFired;
 
     [Space(5)]
     //public float reloadDelaySeconds = 1f;
@@ -29,8 +34,13 @@ public class Gun : MonoBehaviour
 
     [Space(5)]
     //[HideInInspector]
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
     bool reloadDone = true;
     bool reloadNeeded;
+=======
+    public bool reloadDone = true;
+    bool reloading;
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
     bool reloadTimer;
     bool outOfAmmo;
 
@@ -66,6 +76,8 @@ public class Gun : MonoBehaviour
     {
         playerUI = GameObject.Find("UI").GetComponent<PlayerUI>();
         playerAnimator = GetComponentInParent<PlayerAnimator>();
+        maxBulletDelaySeconds = bulletDelaySeconds;
+        magSize = maxAmmo;
         currentAmmo = magSize;
         reloadPercentage = Mathf.Round(magSize / 100 * reloadPercentage);
         bulletDelayTimer = bulletDelaySeconds;
@@ -75,11 +87,21 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
         BulletDelayTimer();
+=======
 
-        if (Input.GetButtonDown("Reload") && currentAmmo != magSize && outOfAmmo == false)
+        //BulletDelayTimer();
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
+
+        if (Input.GetButtonDown("Reload") && currentAmmo != magSize && outOfAmmo == false && reloading == false)
         {
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
+=======
+            //reloadDone = false;
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
             Reload();
+            Debug.Log("Manual Reload");
             //reloadTimer = true;
 
         }
@@ -88,15 +110,9 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
-    }
-
-    public void BulletDelayTimer()
-    {
-        if (bulletDelaySeconds >= bulletDelayTimer)
+        else
         {
-            bulletDelayTimer += Time.deltaTime;
-            bulletDelayTimer += Mathf.Round(Time.deltaTime * 10);
-            //Debug.Log("Time till next shot " + bulletDelayTimer);
+            bulletDelaySeconds = maxBulletDelaySeconds;
         }
     }
     public void Reload()
@@ -116,6 +132,7 @@ public class Gun : MonoBehaviour
             maxAmmo = 0;
         }
 
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
         currentAmmo = magSize;
         //Debug.Log("Reloaded " + currentAmmo + " rounds");
         //reloadNeeded = false;
@@ -126,12 +143,25 @@ public class Gun : MonoBehaviour
         playerUI.UpdateUI();
         //}
     }
+=======
+    //public void BulletDelayTimer()
+    //{
+    //    if (bulletDelaySeconds >= bulletDelayTimer)
+    //    {
+    //        bulletDelayTimer += Time.deltaTime;
+    //        bulletDelayTimer += Mathf.Round(Time.deltaTime * 10);
+    //        //Debug.Log("Time till next shot " + bulletDelayTimer);
+    //    }
+    //}
+
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
 
     public void Shoot()
     {
         Vector3 gunOrigin = new Vector3(camera.transform.position.x, camera.transform.position.y + raycastOffSetY, camera.transform.position.z);
         Debug.DrawRay(gunOrigin, camera.transform.forward * gunRange, Color.red);
         RaycastHit hit;
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
         //playerAnimator.ShootAnimation();
         MuzzelFlash();
         Ammo();
@@ -147,8 +177,57 @@ public class Gun : MonoBehaviour
 
                 //Debug.Log("Fired");
                 hit.collider.GetComponent<EnemyHealth>().TakeDamage(gunDamage);
+=======
+
+        if (Physics.Raycast(gunOrigin, camera.transform.forward, out hit, gunRange, ~LayerMask.GetMask("ImpactEffect")) && shotFired == false)
+        {
+            if (delayOver == true)
+            {
+                //StopCoroutine(BulletDelayTimer());
+                StopAllCoroutines();
+                Ammo();
+                MuzzelFlash();
+                playerAnimator.ShootAnimation();
+                GameObject ImpactEffect = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(ImpactEffect, 0.2f);
+                //Debug.Log(hit.transform.name);
+
+                if (hit.collider.tag == "Enemy")
+                {
+                    hit.collider.GetComponent<EnemyHealth>().TakeDamage(gunDamage);
+                }
+
+                delayOver = false;
+                Debug.Log("delayOver 1 " + delayOver);
+                Debug.Log("Fired");
+
             }
+            else
+            {
+            StartCoroutine(BulletDelayTimer());
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
+            }
+
         }
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
+=======
+        //bulletDelayTimer = 0;
+    }
+
+    IEnumerator BulletDelayTimer()
+    {
+        shotFired = true;
+         yield return new WaitForSeconds(bulletDelaySeconds);
+        if (bulletDelaySeconds >= chargeUpCap)
+        {
+            bulletDelaySeconds -= chargeUp;
+            Debug.Log("delayOver 2 " + delayOver);
+        }
+        delayOver = true;
+        shotFired = false;
+        Debug.Log("Charging");
+        Debug.Log("delayOver 3 " + delayOver);
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
     }
 
     public void MuzzelFlash()
@@ -159,16 +238,65 @@ public class Gun : MonoBehaviour
 
     public void Ammo()
     {
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
         if (currentAmmo > 0)
         {
             currentAmmo--;
             playerUI.UpdateUI();
             //Debug.Log(currentAmmo);
         }
+=======
+        if (reloading == false)
+        {
+            playerAnimator.ReloadAnimation();
+            //Debug.Log("Animation Playing");
+        }
+        //if (reloadTimer == true && reloadDelaySeconds >= reloadDelayTimer)
+        //{
+        //    reloadDelayTimer += Time.deltaTime;
+        //    //Debug.Log("Time till next reload is done " + reloadDelayTimer + " Needs to = " + reloadDelaySeconds);
+        //}
+        //if (reloadDelayTimer >= reloadDelaySeconds)
+        //{
+        if (reloadDone == true)
+        {
+            //maxAmmo -= magSize - currentAmmo;
+            //if (maxAmmo <= 0)
+            //{
+            //    maxAmmo = 0;
+            //}
+
+            currentAmmo = magSize;
+            //Debug.Log("Reloaded " + currentAmmo + " rounds");
+            //reloadNeeded = false;
+            //reloadTimer = false;
+            //bulletDelayTimer = bulletDelaySeconds;
+            //reloadDelayTimer = 0;
+            reloadWarning.GetComponent<Text>().enabled = false;
+            playerUI.UpdateUI();
+            reloadDone = false;
+            reloading = false;
+            //Debug.Log("Reloaded");
+
+        }
+        else
+        {
+            reloading = true;
+            reloadDone = true;
+            //Debug.Log("Reloading " + reloading);
+            //Debug.Log("test");
+        }
+
+    }
+
+    public void Ammo()
+    {
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
         if (currentAmmo == 0 && maxAmmo == 0)
         {
             outOfAmmo = true;
         }
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
         if (currentAmmo == 0 && maxAmmo > 0)
         {
             Reload();
@@ -180,6 +308,32 @@ public class Gun : MonoBehaviour
         if (currentAmmo <= reloadPercentage)
         {
             reloadWarning.GetComponent<Text>().enabled = true;
+=======
+
+        if (currentAmmo <= reloadPercentage)
+        {
+            reloadWarning.GetComponent<Text>().enabled = true;
         }
+
+        if (currentAmmo >= 1 && reloadDone == false)
+        {
+            currentAmmo--;
+            playerUI.UpdateUI();
+            //Debug.Log("shot");
+        }
+
+        if (currentAmmo == 0 && maxAmmo > 0 && reloading == false)
+        {
+            Reload();
+            //reloadNeeded = false;
+            //reloadTimer = true;
+            //Debug.Log("Auto Reload");
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
+        }
+
     }
+<<<<<<< Updated upstream:Project 51 V0.0.9/Project 51 V0.0.9/Assets/Scripts/Gun.cs
+=======
+
+>>>>>>> Stashed changes:Project 51/Assets/Scripts/Gun.cs
 }
